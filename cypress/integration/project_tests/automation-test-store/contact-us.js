@@ -2,6 +2,16 @@
 
 describe('Test Contact Us form via Automation test store', () => {
 
+    it('Page header should have right properties', () => {
+        cy.visit('https://automationteststore.com/')
+        cy.xpath("//a[contains(@href, 'contact')]").click().then(function(linkText){
+            console.log('Button text is: '+ linkText.text())
+    })
+        cy.document().should('have.property', 'charset').and('eq', 'UTF-8')
+        cy.title().should('include', 'Contact Us')
+        cy.url().should('include', 'contact')
+    })
+
 
     it('Should be able to submit a successful submission via Contact Us form', () => {
         cy.visit('https://automationteststore.com/')
