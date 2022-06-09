@@ -4,10 +4,13 @@ describe('Test Contact Us form via WebdriverUni', () => {
   
   beforeEach(function(){
     cy.fixture('userDetail').as('user')
+    const homepage_PO = new HomePage_PO()
+    homepage_PO.visitHomePage()
+    homepage_PO.clickOn_ContactUs_Button()
   })
 
   it('Should be able to submit a successful submission via Contact Us form', () => {
-    cy.visit('https://webdriveruniversity.com/Contact-Us/contactus.html');
+   // cy.visit('https://webdriveruniversity.com/Contact-Us/contactus.html');
     cy.document().should('have.property', 'charset').and('eq', 'UTF-8');
     cy.title().should('contain', 'WebDriver | Contact Us');
     cy.url().should('contain', 'contactus');
@@ -28,7 +31,7 @@ describe('Test Contact Us form via WebdriverUni', () => {
   });
 
   it('Should not be abel submit a successful submission via Contact Us form as all fields are required', () => {
-    cy.visit('https://webdriveruniversity.com/Contact-Us/contactus.html');
+   // cy.visit('https://webdriveruniversity.com/Contact-Us/contactus.html');
     cy.get('@user').then((user)=>{
       cy.get('[name="first_name"]').type(user.first_name);
       cy.get('[name="last_name"]').type(user.second_name);
@@ -40,8 +43,8 @@ describe('Test Contact Us form via WebdriverUni', () => {
 
   it('Should be able to submit a successful submission via Contact Us form', () => {
     //cy.visit('https://webdriveruniversity.com/Contact-Us/contactus.html')
-    cy.visit('https://webdriveruniversity.com');
-    cy.get('#contact-us').invoke('removeAttr', 'target').click({ force: true });
+   // cy.visit('https://webdriveruniversity.com');
+    //cy.get('#contact-us').invoke('removeAttr', 'target').click({ force: true });
     cy.document().should('have.property', 'charset').and('eq', 'UTF-8');
     cy.title().should('contain', 'WebDriver | Contact Us');
     cy.url().should('contain', 'contactus');

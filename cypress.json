@@ -1,1 +1,9 @@
-{}
+{
+    "baseurl": "https://webdriveruniversity.com/",
+
+
+    "env":{
+        "webdriveruni_homepage": "https://webdriveruniversity.com/",
+        "first_name": "Bohdan"
+    }
+}

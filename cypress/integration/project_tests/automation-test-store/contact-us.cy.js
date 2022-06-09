@@ -1,3 +1,4 @@
+import HomePage_PO from "../../../support/pageObject/webdriver-uni/HomePage_po"
 /// <reference types="Cypress" />
 
 describe('Test Contact Us form via Automation test store', () => {
@@ -11,10 +12,11 @@ describe('Test Contact Us form via Automation test store', () => {
     })
 
     beforeEach(() => {
-        cy.visit('https://automationteststore.com/')
-        cy.xpath("//a[contains(@href, 'contact')]").click().then(function(linkText){
-            console.log('Button text is: '+ linkText.text())
-    })
+         cy.visit('https://automationteststore.com/')
+         cy.xpath("//a[contains(@href, 'contact')]").click().then(function(linkText){
+             console.log('Button text is: '+ linkText.text())
+})
+
       })
 
     it('Page header should have right properties', () => {
