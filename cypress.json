@@ -1,9 +1,15 @@
 {
-    "baseurl": "https://webdriveruniversity.com/",
+    "baseUrl": "https://webdriveruniversity.com/",
 
 
     "env":{
         "webdriveruni_homepage": "https://webdriveruniversity.com/",
         "first_name": "Bohdan"
-    }
+    },
+
+    "chromeWebSecurity": false,
+    "defaultCommandTimeout" : 10000,
+    "pageLoadTimeout": 30000
+    
+
 }
