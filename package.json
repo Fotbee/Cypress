@@ -4,13 +4,31 @@
   "description": "Cypress automation framework",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "trigerAllTests-headless": "npx cypress run",
+    "trigerAllTest-headed": "npx cypress run --headed",
+    "trigerAllTests-chrome": "npx cypress run --browser chrome",
+    "trigerAllTests-dashboard": "npx cypress run --record --key b687bb98-109d-4e47-b9cf-5bbc64afd340",
+    "trigerAllTest-WebdriverUni": "npx cypress run --spec cypress/integration/project_tests/webdriver-uni/*",
+    "trigerAllTest-WebdriverUni-dashboard": "npx cypress run --spec cypress/integration/project_tests/webdriver-uni/*",
+    "junit-merge": "npx junit-merge -d cypress/results/junit -o cypress/results/junit/results.xml",
+    "delete-junit-report": "rm -rf cypress/results/junit/results.xml",
+    "delete-results": "rm -rf cypress/results/* || true",
+    "mochawesome-merge": "npx mochawesome-merge cypress/results/mochawesome/*.json > mochawesome.json && npx marge mochawesome.json",
+    "delete-mochawesome-report": "rm -rf mochawesome-report/* || true",
+    "cypress-regression-pack": "npm run delete-results && npm run delete-mochawesome-report && npm run triggerAllTests-headless && npm run mochawesome-merge",
+    "trigerAllTests-staging-env":"npx cypress run --config-file cypress/config/staging.json"
   },
   "author": "Hevlich Bohdan",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^9.7.0",
     "cypress-file-upload": "^5.0.8",
-    "cypress-xpath": "^1.6.2"
+    "cypress-multi-reporters": "^1.6.1",
+    "cypress-xpath": "^1.6.2",
+    "mocha": "^10.0.0",
+    "mocha-junit-reporter": "^2.0.2",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.2.0"
   }
 }
