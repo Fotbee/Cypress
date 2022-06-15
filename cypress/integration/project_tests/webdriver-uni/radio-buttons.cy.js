@@ -1,10 +1,12 @@
+import HomePage_PO from "../../../support/pageObject/webdriver-uni/HomePage_PO";
 /// <reference types="Cypress" />
 
 describe('Varify radio buttons via driverUni', () => {
+  const homePage_PO = new HomePage_PO()
 
   beforeEach(() => {
-    cy.visit("http://webdriveruniversity.com/");
-    cy.get('#dropdown-checkboxes-radiobuttons').invoke('removeAttr', 'target').click({force: true})
+    homePage_PO.visitHomePage()
+    homePage_PO.clickOn_Data_drop_checkbox_radio_Button()
   })
 
     it('Check specific radio buttons', () => {
@@ -23,8 +25,6 @@ describe('Varify radio buttons via driverUni', () => {
 
         cy.get('[value="cabbage"]').should('be.disabled')
 
-        
-  
       });
      
   

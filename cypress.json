@@ -4,6 +4,7 @@
 
     "env":{
         "webdriveruni_homepage": "https://webdriveruniversity.com/",
+        "auto_test_store_homepage":"https://automationteststore.com/",
         "first_name": "Bohdan"
     },
 

@@ -1,11 +1,14 @@
+import HomePage_PO from "../../../support/pageObject/webdriver-uni/HomePage_PO";
 /// <reference types="Cypress" />
 
 describe('Handle JS alerts', () => {
+    const homePage_PO = new HomePage_PO()
+    beforeEach(()=>{
+        homePage_PO.visitHomePage()
+        homePage_PO.clickOn_PopupAlerts_Button()
+    })
     it('Confirm JS alert contains the correct text', () => {
-      cy.visit('https://webdriveruniversity.com/');
-      cy.get('#popup-alerts').invoke('removeAttr', 'target').click({force: true})
       cy.get('#button1').click()
-
       cy.on('window:alert', (str) => {
           expect(str).to.equal('I am an alert box!')
       })
@@ -13,8 +16,6 @@ describe('Handle JS alerts', () => {
   });
 
   it('Validate JS comnfirm alert box works correctly when clicking ok', () => {
-    cy.visit('https://webdriveruniversity.com/');
-    cy.get('#popup-alerts').invoke('removeAttr', 'target').click({force: true})
     cy.get('#button4').click()
 
     cy.on('window:confirm', (str) => {
@@ -25,8 +26,6 @@ describe('Handle JS alerts', () => {
 });
 
 it('Validate JS comnfirm alert box works correctly when clicking cancel', () => {
-    cy.visit('https://webdriveruniversity.com/');
-    cy.get('#popup-alerts').invoke('removeAttr', 'target').click({force: true})
     cy.get('#button4').click()
 
     cy.on('window:confirm', (str) => {
@@ -37,9 +36,6 @@ it('Validate JS comnfirm alert box works correctly when clicking cancel', () => 
 });
 
 it('Validate JS comnfirm alert box works correctly using a stub', () => {
-    cy.visit('https://webdriveruniversity.com/');
-    cy.get('#popup-alerts').invoke('removeAttr', 'target').click({force: true})
-
     const stub = cy.stub()
     cy.on('window:confirm', stub)
 
