@@ -1,0 +1,9 @@
+image: cypress/base:10
+
+stages:
+  - main  
+test:
+  stage: main
+  script:
+  -npm install
+  -npm run trigerAllTests-headless
