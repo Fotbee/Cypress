@@ -1,10 +1,11 @@
+import HomePage_PO from "../../../support/pageObject/webdriver-uni/HomePage_PO";
 /// <reference types="Cypress" />
 
 describe('Verify autocomplete dropdown list via driverUni', () => {
+  const homePage_PO = new HomePage_PO();
     it('Select specific product via autocomplete list', () => {
-      cy.visit('https://webdriveruniversity.com');
-      cy.get('#autocomplete-textfield').invoke('removeAttr', 'target').click({force: true})
-
+      homePage_PO.visitHomePage()
+      homePage_PO.clickOn_AutoComplete_Textfield_Button()
       cy.get('#myInput').type('A')
       cy.get('#myInputautocomplete-list > *').each(($el, index, $list) => {
           const prod = $el.text()

@@ -1,10 +1,13 @@
+import HomePage_PO from "../../../support/pageObject/webdriver-uni/HomePage_PO";
 /// <reference types="Cypress" />
 
 describe('Handling iFrames and modules', () => {
+  const homePage_PO = new HomePage_PO()
+  before(()=>{
+    homePage_PO.visitHomePage()
+    homePage_PO.clickOn_Iframe_Button()
+  })
     it('Handle webdriverUni iFrame and module', () => {
-      cy.visit('https://webdriveruniversity.com');
-      cy.get('#iframe').invoke('removeAttr', 'target').click({force: true})
-
       cy.get('#frame').then( $iframe => {
         const body = $iframe.contents().find('body')
         cy.wrap(body).as('iframe')

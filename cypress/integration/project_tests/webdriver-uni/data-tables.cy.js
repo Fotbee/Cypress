@@ -1,10 +1,12 @@
+import HomePage_PO from "../../../support/pageObject/webdriver-uni/HomePage_PO";
 /// <reference types="Cypress" />
 
 describe('Handling data via webdriverUni', () => {
 
+  const homePage_PO = new HomePage_PO();
     beforeEach(() => {
-      cy.visit("http://webdriveruniversity.com/");
-      cy.get('#data-table').invoke('removeAttr', 'target').click({force: true})
+      homePage_PO.visitHomePage()
+      homePage_PO.clickOn_Data_Tables_Button()
     })
   
       it('Calculate and assert total age of all users', () => {
