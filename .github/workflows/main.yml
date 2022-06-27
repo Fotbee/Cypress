@@ -11,6 +11,7 @@ jobs:
         uses: cypress-io/github-action@v4.1.0
         with:
           record: true
+          command: npm run trigerAllTest-WebdriverUni-dashboard
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
