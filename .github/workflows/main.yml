@@ -11,5 +11,5 @@ jobs:
         with:
           record: true
         env:
-          CYPRESS_RECORD_KEY: ${{ b687bb98-109d-4e47-b9cf-5bbc64afd340 }}
+          CYPRESS_RECORD_KEY: ${{b687bb98-109d-4e47-b9cf-5bbc64afd340}}
       
