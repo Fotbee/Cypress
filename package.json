@@ -18,7 +18,8 @@
     "mochawesome-merge": "npx mochawesome-merge cypress/results/mochawesome/*.json > mochawesome.json && npx marge mochawesome.json",
     "delete-mochawesome-report": "rm -rf mochawesome-report/* || true",
     "cypress-regression-pack": "npm run delete-results && npm run delete-mochawesome-report && npm run triggerAllTests-headless && npm run mochawesome-merge",
-    "trigerAllTests-staging-env": "npx cypress run --config-file cypress/config/staging.json"
+    "trigerAllTests-staging-env": "npx cypress run --config-file cypress/config/staging.json",
+    "ci_Start_Server":"http-server --path"
   },
   "author": "Hevlich Bohdan",
   "license": "ISC",
@@ -28,10 +29,12 @@
     "cypress-mailosaur": "^2.9.0",
     "cypress-multi-reporters": "^1.6.1",
     "cypress-xpath": "^1.6.2",
+    "http-server": "^14.1.1",
     "mocha": "^10.0.0",
     "mocha-junit-reporter": "^2.0.2",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.2.1",
-    "mochawesome-report-generator": "^6.2.0"
+    "mochawesome-report-generator": "^6.2.0",
+    "start-server-and-test": "^1.14.0"
   }
 }
