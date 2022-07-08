@@ -25,6 +25,7 @@
   "devDependencies": {
     "cypress": "^9.7.0",
     "cypress-file-upload": "^5.0.8",
+    "cypress-mailosaur": "^2.9.0",
     "cypress-multi-reporters": "^1.6.1",
     "cypress-xpath": "^1.6.2",
     "mocha": "^10.0.0",
